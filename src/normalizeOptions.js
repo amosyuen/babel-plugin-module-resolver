@@ -132,6 +132,7 @@ export default createSelector(
     const alias = normalizeAlias(opts.alias);
     const transformFunctions = normalizeTransformedFunctions(opts.transformFunctions);
     const extensions = opts.extensions || defaultExtensions;
+    const stripExtensions = opts.stripExtensions || extensions;
     const resolvePath = opts.resolvePath || defaultResolvePath;
 
     return {
@@ -140,6 +141,7 @@ export default createSelector(
       alias,
       transformFunctions,
       extensions,
+      stripExtensions,
       resolvePath,
     };
   },
