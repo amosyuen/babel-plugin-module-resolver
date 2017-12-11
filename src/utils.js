@@ -15,6 +15,10 @@ export function toPosixPath(modulePath) {
   return modulePath.replace(/\\/g, '/');
 }
 
+export function isRelativePath(nodePath) {
+  return nodePath.match(/^\.?\.\//);
+}
+
 export function toLocalPath(modulePath) {
   return modulePath
     .replace(/\/index$/, '') // remove trailing /index
