@@ -15,10 +15,16 @@ export function toPosixPath(modulePath) {
   return modulePath.replace(/\\/g, '/');
 }
 
+export function isRelativePath(nodePath) {
+  return nodePath.match(/\.?\.\//);
+}
+
 export function toLocalPath(modulePath) {
-  return modulePath
-    .replace(/\/index$/, '') // remove trailing /index
-    .replace(/^(?!\.)/, './'); // insert `./` to make it a local path
+  let localPath = modulePath.replace(/\/index$/, ''); // remove trailing /index
+  if (!isRelativePath(localPath)) {
+    localPath = `./${localPath}`; // insert `./` to make it a local path
+  }
+  return localPath;
 }
 
 export function stripExtension(modulePath, stripExtensions) {

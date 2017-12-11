@@ -308,6 +308,25 @@ describe('module-resolver', () => {
       });
     });
 
+    describe('relative path', () => {
+      const rootTransformerOpts = {
+        babelrc: false,
+        plugins: [
+          [plugin, {
+            root: './test/testproject/src',
+          }],
+        ],
+      };
+
+      it('should resolve path with filename starting with .', () => {
+        testWithImport(
+          './.eslintrc',
+          './.eslintrc',
+          rootTransformerOpts,
+        );
+      });
+    });
+
     describe('root and alias', () => {
       const aliasTransformerOpts = {
         babelrc: false,
