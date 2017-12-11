@@ -95,7 +95,7 @@ An array of extensions that will be stripped from file paths. Defaults to the `e
     [
       "module-resolver",
       {
-        "extensions": [".js", ".jsx", ".es", ".es6", ".mjs"]
+        "stripExtensions": [".js", ".jsx", ".es", ".es6", ".mjs"]
       }
     ]
   ]

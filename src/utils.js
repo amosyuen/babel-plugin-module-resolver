@@ -16,7 +16,7 @@ export function toPosixPath(modulePath) {
 }
 
 export function isRelativePath(nodePath) {
-  return nodePath.match(/\.?\.\//);
+  return nodePath.match(/^\.?\.\//);
 }
 
 export function toLocalPath(modulePath) {
